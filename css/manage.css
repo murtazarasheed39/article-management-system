@@ -1,0 +1,139 @@
+/* manage.css */
+
+main {
+  margin-left: 240px; /* matching main.css */
+  padding: 20px 30px;
+  font-family: Arial, sans-serif;
+  min-height: 80vh;
+  background-color: #fff;
+  box-sizing: border-box;
+  color: #222;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #333;
+}
+
+.success-msg {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.add-edit-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #444;
+}
+
+.add-edit-form input[type="text"],
+.add-edit-form input[type="number"],
+.add-edit-form input[type="email"],
+.add-edit-form select,
+.add-edit-form textarea {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.add-edit-form input[type="text"]:focus,
+.add-edit-form input[type="number"]:focus,
+.add-edit-form input[type="email"]:focus,
+.add-edit-form select:focus,
+.add-edit-form textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.add-edit-form button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.add-edit-form button:hover {
+  background-color: #0056b3;
+}
+
+.table-container {
+  overflow-x: auto;
+  margin-top: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+table th {
+  background-color: #f8f9fa;
+  font-weight: 700;
+  color: #555;
+}
+
+.action-buttons button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-right: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background-color 0.2s ease;
+}
+
+.action-buttons button:hover {
+  background-color: #218838;
+}
+
+.action-buttons a {
+  color: #dc3545;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.action-buttons a:hover {
+  text-decoration: underline;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 25px;
+  color: #007bff;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}

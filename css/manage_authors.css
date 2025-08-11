@@ -1,0 +1,171 @@
+/* manage_authors.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    margin: 30px;
+    color: #222;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #222;
+}
+
+p.message {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+p.message.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+p.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+form {
+    max-width: 600px;
+    margin-bottom: 30px;
+    padding: 20px 30px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="file"],
+form textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-top: 6px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease-in-out;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus,
+form input[type="file"]:focus,
+form textarea:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+button, input[type="submit"] {
+    margin-top: 20px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #003d80;
+}
+
+button[type="button"] {
+    background-color: #7f8c8d;
+    margin-left: 10px;
+}
+
+button[type="button"]:hover {
+    background-color: #626d70;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table thead {
+    background-color: #0056b3;
+    color: white;
+}
+
+table thead th {
+    padding: 15px 20px;
+    text-align: left;
+}
+
+table tbody td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tbody tr:hover {
+    background-color: #e3f0ff;
+}
+
+button.edit-btn {
+    background-color: #27ae60;
+    padding: 8px 14px;
+    font-size: 0.9em;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+button.edit-btn:hover {
+    background-color: #1e8449;
+}
+
+a.delete-link {
+    color: #c0392b;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a.delete-link:hover {
+    text-decoration: underline;
+}
+
+a.back-link {
+    display: inline-block;
+    margin-top: 30px;
+    color: #0056b3;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+a.back-link:hover {
+    text-decoration: underline;
+}

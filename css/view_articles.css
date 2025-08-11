@@ -1,0 +1,149 @@
+/* css/view_articles.css */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f9fc;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #141415;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar a {
+  color: white;
+  padding: 14px 22px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  margin: 0 8px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: #2980b9;
+  color: white;
+  width: 250px;
+  min-height: calc(100vh - 48px);
+  padding: 30px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 48px;
+  left: 0;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+.sidebar nav a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 18px;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar nav a:hover {
+  background-color: #1b5d94;
+}
+
+/* Main content */
+main {
+  margin-left: 250px;
+  padding: 40px;
+  flex-grow: 1;
+  background-color: #fff;
+  min-height: calc(100vh - 48px);
+  box-sizing: border-box;
+  border-radius: 8px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #2c3e50;
+}
+
+article {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #e3e8f0;
+  padding-bottom: 20px;
+}
+
+article h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.5rem;
+  color: #2980b9;
+}
+
+article p small {
+  color: #7f8c8d;
+}
+
+article p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #34495e;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 30px;
+  font-weight: 600;
+  color: #2980b9;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #1f598a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+  .sidebar {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    top: 0;
+  }
+  main {
+    margin-left: 0;
+    padding: 20px;
+    min-height: auto;
+  }
+}

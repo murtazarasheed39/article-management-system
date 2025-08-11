@@ -1,0 +1,111 @@
+/* combined-dashboard.css */
+
+/* Reset and body */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f9fc;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar styling */
+.navbar {
+  background-color: #141415;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 0;
+  font-family: Arial, sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar a {
+  color: white;
+  padding: 14px 22px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  margin: 0 8px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+/* Sidebar styling */
+.sidebar {
+  width: 220px;
+  background-color: #2980b9;
+  color: white;
+  padding: 20px;
+  height: calc(100vh - 48px); /* navbar approx height */
+  position: fixed;
+  top: 48px; /* below navbar */
+  left: 0;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.sidebar nav a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 12px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+  color: #a9d1ff;
+}
+
+/* Main content */
+main {
+  margin-left: 240px; /* sidebar width + some spacing */
+  padding: 40px 30px;
+  max-width: calc(100% - 240px);
+  box-sizing: border-box;
+}
+
+main h2 {
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+main p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Back link styling (if used) */
+a.back-link {
+  display: inline-block;
+  margin-top: 30px;
+  font-weight: 600;
+  color: #2980b9;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+a.back-link:hover {
+  color: #1f598a;
+}

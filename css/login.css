@@ -1,0 +1,130 @@
+/* css/login.css */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f9fc;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar styling */
+.navbar {
+  background-color: #141415;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar a {
+  color: white;
+  padding: 14px 22px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  margin: 0 8px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+/* Main container with sidebar and content */
+.container {
+  display: flex;
+  max-width: 1100px;
+  margin: 40px auto;
+  background-color: #fff;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Sidebar styling */
+.sidebar {
+  width: 220px;
+  background-color: #2980b9;
+  color: white;
+  padding: 20px;
+  flex-shrink: 0;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.sidebar a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 12px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.sidebar a:hover {
+  color: #a9d1ff;
+}
+
+/* Main content styling */
+.content {
+  flex-grow: 1;
+  padding: 30px 40px;
+}
+
+.content h1 {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #2c3e50;
+}
+
+form label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+}
+
+form input[type="text"],
+form input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.8px solid #d1d9e6;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  transition: border-color 0.25s ease-in-out;
+}
+
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+  border-color: #2980b9;
+  outline: none;
+}
+
+form input[type="submit"] {
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+  background-color: #1f598a;
+}
