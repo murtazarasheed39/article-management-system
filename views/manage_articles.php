@@ -1,5 +1,4 @@
 <?php
-// views/manage_articles.php
 session_start();
 require_once __DIR__ . '/../db/connection.php';
 require_once __DIR__ . '/../classes/Article.php';
@@ -12,15 +11,18 @@ if (!isset($_SESSION['userId']) || $_SESSION['userType'] !== 'Administrator') {
 
 $articleObj = new Article($conn);
 $userObj = new User($conn);
-$message = "";
+$msg = "";
+$msgClass = "";
 
 // Delete article
 if (isset($_GET['delete'])) {
     $articleId = (int)$_GET['delete'];
     if ($articleObj->delete($articleId)) {
-        $message = "Article deleted successfully.";
+        $msg = "Article deleted successfully.";
+        $msgClass = "success";
     } else {
-        $message = "Failed to delete article.";
+        $msg = "Failed to delete article.";
+        $msgClass = "error";
     }
 }
 
@@ -43,25 +45,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($articleId) {
         if ($articleObj->update($articleId, $data)) {
-            $message = "Article updated successfully.";
+            $msg = "Article updated successfully.";
+            $msgClass = "success";
         } else {
-            $message = "Failed to update article.";
+            $msg = "Failed to update article.";
+            $msgClass = "error";
         }
     } else {
         if ($articleObj->create($data)) {
-            $message = "Article added successfully.";
+            $msg = "Article added successfully.";
+            $msgClass = "success";
         } else {
-            $message = "Failed to add article.";
+            $msg = "Failed to add article.";
+            $msgClass = "error";
         }
     }
 }
 
 // Get all articles with author names
 $articles = $articleObj->getAll();
-
-// Get all authors for dropdown
 $authors = $userObj->getAllByType('Author');
-
 ?>
 
 <!DOCTYPE html>
@@ -73,64 +76,88 @@ $authors = $userObj->getAllByType('Author');
     <link rel="stylesheet" href="../css/manage_articles.css" />
 </head>
 <body>
-<h2>Manage Articles</h2>
+<main>
+    <h2>Manage Articles</h2>
 
-<?php if ($message) echo "<p>$message</p>"; ?>
+    <!-- Messages -->
+    <?php if ($msg): ?>
+        <p class="message <?= $msgClass ?>"><?= htmlspecialchars($msg) ?></p>
+    <?php endif; ?>
 
-<form method="post">
-    <input type="hidden" name="articleId" id="articleId" value="">
+    <!-- Article Form -->
+    <form method="post">
+        <input type="hidden" name="articleId" id="articleId" value="">
 
-    <label for="authorId">Author:</label><br>
-    <select name="authorId" id="authorId" required>
-        <option value="">Select Author</option>
-        <?php while ($author = $authors->fetch_assoc()): ?>
-            <option value="<?php echo $author['userId']; ?>"><?php echo htmlspecialchars($author['Full_Name']); ?></option>
-        <?php endwhile; ?>
-    </select><br><br>
+        <label for="authorId">Author:</label>
+        <select name="authorId" id="authorId" required>
+            <option value="">Select Author</option>
+            <?php while ($author = $authors->fetch_assoc()): ?>
+                <option value="<?= $author['userId'] ?>"><?= htmlspecialchars($author['Full_Name']) ?></option>
+            <?php endwhile; ?>
+        </select>
 
-    <label for="article_title">Title:</label><br>
-    <input type="text" name="article_title" id="article_title" required><br><br>
+        <label for="article_title">Title:</label>
+        <input type="text" name="article_title" id="article_title" required>
 
-    <label for="article_full_text">Full Text:</label><br>
-    <textarea name="article_full_text" id="article_full_text" rows="6" cols="50" required></textarea><br><br>
+        <label for="article_full_text">Full Text:</label>
+        <textarea name="article_full_text" id="article_full_text" rows="6" required></textarea>
 
-    <label for="article_display">Display (yes/no):</label><br>
-    <select name="article_display" id="article_display" required>
-        <option value="yes">Yes</option>
-        <option value="no">No</option>
-    </select><br><br>
+        <label for="article_display">Display (yes/no):</label>
+        <select name="article_display" id="article_display" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
 
-    <label for="article_order">Order:</label><br>
-    <input type="number" name="article_order" id="article_order" value="0" required><br><br>
+        <label for="article_order">Order:</label>
+        <input type="number" name="article_order" id="article_order" value="0" required>
 
-    <button type="submit">Save Article</button>
-    <button type="button" onclick="clearForm()">Clear</button>
-</form>
+        <button type="submit">Save Article</button>
+        <button type="button" onclick="clearForm()">Clear</button>
+    </form>
 
-<h3>All Articles</h3>
-<table>
-    <thead>
-    <tr>
-        <th>ID</th><th>Title</th><th>Author</th><th>Created Date</th><th>Display</th><th>Order</th><th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <?php while ($article = $articles->fetch_assoc()): ?>
-        <tr>
-            <td><?php echo $article['articleId']; ?></td>
-            <td><?php echo htmlspecialchars($article['article_title']); ?></td>
-            <td><?php echo htmlspecialchars($article['Full_Name']); ?></td>
-            <td><?php echo $article['article_created_date']; ?></td>
-            <td><?php echo $article['article_display']; ?></td>
-            <td><?php echo $article['article_order']; ?></td>
-            <td>
-                <button type="button" onclick='editArticle(<?php echo json_encode($article); ?>)'>Edit</button>
-                <a href="?delete=<?php echo $article['articleId']; ?>" class="delete" onclick="return confirm('Delete this article?');">Delete</a>
-            </td>
-        </tr>
-    <?php endwhile; ?>
-    </tbody>
-</table>
+    <!-- Articles Table -->
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Created Date</th>
+                <th>Display</th>
+                <th>Order</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php if ($articles && $articles->num_rows > 0): ?>
+                <?php while ($article = $articles->fetch_assoc()): ?>
+                    <tr>
+                        <td><?= $article['articleId'] ?></td>
+                        <td><?= htmlspecialchars($article['article_title']) ?></td>
+                        <td><?= htmlspecialchars($article['Full_Name']) ?></td>
+                        <td><?= $article['article_created_date'] ?></td>
+                        <td><?= $article['article_display'] ?></td>
+                        <td><?= $article['article_order'] ?></td>
+                        <td>
+                            <button type="button" class="edit-btn" onclick='editArticle(<?= json_encode($article) ?>)'>Edit</button>
+                            <a href="?delete=<?= $article['articleId'] ?>" class="delete-link" onclick="return confirm('Delete this article?');">Delete</a>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
+            <?php else: ?>
+                <tr>
+                    <td colspan="7" class="no-data">No articles found.</td>
+                </tr>
+            <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="back-link">
+        <a href="dashboard.php">← Back to Dashboard</a>
+    </div>
+</main>
 
 <script>
 function editArticle(article) {
@@ -151,8 +178,5 @@ function clearForm() {
     document.getElementById('article_order').value = 0;
 }
 </script>
-
-<br>
-<a href="dashboard.php" class="back-link">Back to Dashboard</a>
 </body>
 </html>

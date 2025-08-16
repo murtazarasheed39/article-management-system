@@ -78,8 +78,9 @@ class User {
         return $stmt->get_result();
     }
 
+    
     public function getAllByType($type) {
-        $stmt = $this->conn->prepare("SELECT * FROM users WHERE UserType = ? ORDER BY userId DESC");
+        $stmt = $this->conn->prepare("SELECT userId, Full_Name, email, phone_Number, User_Name, profile_Image, Address, UserType FROM users WHERE UserType = ? ORDER BY userId DESC");
         $stmt->bind_param("s", $type);
         $stmt->execute();
         return $stmt->get_result();
