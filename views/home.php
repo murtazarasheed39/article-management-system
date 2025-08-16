@@ -7,13 +7,6 @@
     <meta charset="UTF-8">
     <title>Article Management - Home</title>
     <link rel="stylesheet" href="../css/home.css">
-    <script>
-        // Sidebar toggle script
-        function toggleSidebar() {
-            document.querySelector(".sidebar").classList.toggle("collapsed");
-            document.querySelector(".content").classList.toggle("expanded");
-        }
-    </script>
 </head>
 <body>
 
@@ -27,27 +20,14 @@
         <a href="articles.php">Articles</a>
         <a href="profile.php">Profile</a>
         <a href="logout.php">Logout</a>
-        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
     </div>
 </nav>
 
 <div class="container">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-        <h3>Quick Links</h3>
-        <ul>
-            <li><a href="#">Add Article</a></li>
-            <li><a href="#">Manage Users</a></li>
-            <li><a href="#">Settings</a></li>
-        </ul>
-        <h3>Info</h3>
-        <p>Welcome to the Article Management System. Use the menu to navigate.</p>
-    </aside>
-
-    <!-- Main Content -->
+    <!-- Main Content only -->
     <main class="content">
         <h1>Welcome!</h1>
-        <p>This is your dashboard. Select an option from the menu or sidebar.</p>
+        <p>This is your dashboard. Login or register your credentials to access your profile. Thank you!</p>
     </main>
 </div>
 
