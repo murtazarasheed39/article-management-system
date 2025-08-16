@@ -16,6 +16,7 @@ if (isset($_SESSION['userId'])) {
 <body>
 
 <div class="navbar">
+    <a href="home.php" <?php if(basename($_SERVER['PHP_SELF']) == 'home.php') echo 'class="active"'; ?>>Home</a>
     <a href="login.php" <?php if(basename($_SERVER['PHP_SELF']) == 'login.php') echo 'class="active"'; ?>>Login</a>
     <a href="register.php" <?php if(basename($_SERVER['PHP_SELF']) == 'register.php') echo 'class="active"'; ?>>Register</a>
 </div>
