@@ -6,9 +6,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Article Management - Home</title>
-    <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/sidebar.css">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <script>
+        // Sidebar toggle script
+        function toggleSidebar() {
+            document.querySelector(".sidebar").classList.toggle("collapsed");
+            document.querySelector(".content").classList.toggle("expanded");
+        }
+    </script>
 </head>
 <body>
 
@@ -18,10 +23,11 @@
         <a href="home.php" class="logo">MySite</a>
     </div>
     <div class="nav-right">
-        <a href="home.php">Home</a>
+        <a href="home.php" class="active">Home</a>
         <a href="articles.php">Articles</a>
         <a href="profile.php">Profile</a>
         <a href="logout.php">Logout</a>
+        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
     </div>
 </nav>
 
